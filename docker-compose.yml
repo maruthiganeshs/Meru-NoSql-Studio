@@ -1,0 +1,13 @@
+services:
+  api:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      APP_SECRET_KEY: ${APP_SECRET_KEY:-dev-change-me-generate-a-fernet-key}
+      DATABASE_URL: sqlite+aiosqlite:////data/studio.db
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173,http://127.0.0.1:5173,http://localhost:8000}
+    volumes:
+      - ./data:/data
+    restart: unless-stopped

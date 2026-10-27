@@ -1,0 +1,10 @@
+{
+  "name": "meru-nosql-studio",
+  "private": true,
+  "scripts": {
+    "dev:api": "cd backend && uvicorn app.main:app --reload --port 8000",
+    "dev:web": "cd frontend && npm run dev",
+    "build:web": "cd frontend && npm run build && node ../scripts/copy-static.mjs",
+    "docker:up": "docker compose up --build"
+  }
+}
